@@ -12,6 +12,7 @@
   <title>WI2026 — Coding Agent Evaluation</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230f1b2d%22/><text x=%2250%22 y=%2261%22 text-anchor=%22middle%22 font-size=%2242%22 font-family=%22Arial%22 fill=%22white%22>WI</text></svg>" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="study-assistant/assistant.css?v=20260907-live" />
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -34,6 +35,7 @@
       <div class="nav-actions">
         <button class="lang-toggle" id="langToggle" type="button" aria-label="Sprache wechseln">EN</button>
         <a class="button button-small button-outline" href="public/paper.pdf" target="_blank" rel="noopener">Paper</a>
+        <button class="button button-small nav-study-button" type="button" data-open-study-assistant>Ask our Study</button>
       </div>
     </div>
   </header>
@@ -260,6 +262,17 @@
       </div>
     </section>
 
+    <section class="section ask-study-section" id="ask-study">
+      <div class="container ask-study-card">
+        <div class="ask-study-copy">
+          <p class="section-kicker">Local study assistant</p>
+          <h2>Ask our Study</h2>
+          <p>Ask your own question in German or English. Answers about the findings, methodology, and limitations come directly from the local study knowledge base.</p>
+        </div>
+        <button class="button ask-study-launch" type="button" data-open-study-assistant>Ask a question</button>
+      </div>
+    </section>
+
     <section class="section" id="resources">
       <div class="container">
         <div class="section-heading">
@@ -318,9 +331,39 @@
     </div>
   </footer>
 
+  <dialog class="study-assistant-dialog" id="studyAssistantDialog" aria-labelledby="studyAssistantTitle">
+    <div class="study-assistant-shell">
+      <header class="study-assistant-header">
+        <div class="study-assistant-title-row">
+          <span class="study-assistant-mark" aria-hidden="true">?</span>
+          <div>
+            <h2 id="studyAssistantTitle">Ask our Study</h2>
+            <p>Free questions in DE or EN · local retrieval</p>
+          </div>
+        </div>
+        <button class="study-icon-button" id="studyAssistantClose" type="button" aria-label="Close study assistant">×</button>
+      </header>
+
+      <div class="study-assistant-messages" id="studyAssistantMessages" aria-live="polite" aria-relevant="additions"></div>
+      <div class="study-assistant-suggestions" id="studyAssistantSuggestions"></div>
+
+      <div>
+        <form class="study-assistant-composer" id="studyAssistantForm">
+          <button class="study-reset-button" id="studyAssistantReset" type="button">New question</button>
+          <label class="visually-hidden" for="studyAssistantInput">Question about the study</label>
+          <input class="study-assistant-input" id="studyAssistantInput" name="question" type="text" maxlength="240" autocomplete="off" placeholder="Ask freely in German or English…" required />
+          <button class="study-send-button" type="submit">Send</button>
+        </form>
+        <p class="study-privacy-note">Your question stays in this browser tab and is never stored or sent anywhere.</p>
+      </div>
+    </div>
+  </dialog>
+
   <script src="script.js?v=20260907-v4" defer></script>
   <script src="finalize.js?v=20260907-v4" defer></script>
   <script src="polish-v3.js?v=20260907-v4" defer></script>
   <script src="polish-v4.js?v=20260907-v4" defer></script>
+  <script src="study-assistant/study-data.js?v=20260907-live" defer></script>
+  <script src="study-assistant/assistant.js?v=20260907-live" defer></script>
 </body>
 </html>
