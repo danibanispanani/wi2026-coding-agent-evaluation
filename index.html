@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f1b2d" />
+  <meta name="description" content="Multidimensionale Evaluation LLM-basierter Coding-Agenten: Warum funktionale Korrektheit allein nicht mehr reicht." />
+  <meta property="og:title" content="Functional correct is not enough — WI2026 Student Challenge" />
+  <meta property="og:description" content="288 gepaarte Läufe, drei Coding-Agenten und eine zusätzliche Metrikschicht für Robustheit, Qualität, Compliance und Effizienz." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="public/poster-preview.png" />
+  <title>WI2026 — Coding Agent Evaluation</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230f1b2d%22/><text x=%2250%22 y=%2261%22 text-anchor=%22middle%22 font-size=%2242%22 font-family=%22Arial%22 fill=%22white%22>WI</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Startseite">
+        <span class="brand-mark">WI</span>
+        <span class="brand-text">
+          <strong>2026 Student Challenge</strong>
+          <span>Coding Agent Evaluation</span>
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="Hauptnavigation">
+        <a href="#results">Ergebnisse</a>
+        <a href="#method">Methode</a>
+        <a href="#hypotheses">Hypothesen</a>
+        <a href="#resources">Material</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Sprache wechseln">EN</button>
+        <a class="button button-small button-outline" href="public/paper.pdf" target="_blank" rel="noopener">Paper</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <div class="eyebrow-row">
+          <span class="eyebrow">21. Internationale Konferenz Wirtschaftsinformatik · Linz</span>
+          <span class="status-chip">Research in Progress · Student Challenge</span>
+        </div>
+
+        <div class="hero-copy">
+          <p class="kicker" data-i18n="heroKicker">Multidimensionale Evaluation LLM-basierter Coding-Agenten</p>
+          <h1>
+            <span data-i18n="heroLine1">FUNCTIONAL CORRECT</span>
+            <span class="accent" data-i18n="heroLine2">IS NOT ENOUGH.</span>
+          </h1>
+          <p class="hero-lead" data-i18n="heroLead">
+            Sichtbare Unit-Tests zeigen nahezu Gleichstand. Erst zusätzliche Metriken für Robustheit, Wartbarkeit, Minimalität, Constraint Compliance und Effizienz machen die Unterschiede zwischen Coding-Agenten sichtbar.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#results" data-i18n="ctaResults">Ergebnisse ansehen</a>
+            <a class="button button-ghost" href="public/poster.pdf" target="_blank" rel="noopener" data-i18n="ctaPoster">Poster öffnen</a>
+          </div>
+        </div>
+
+        <div class="stat-strip" aria-label="Zentrale Kennzahlen">
+          <article class="stat-card">
+            <div class="stat-value">99,7–100 %</div>
+            <div class="stat-label" data-i18n="visibleTests">sichtbare Tests</div>
+            <div class="stat-note" data-i18n="ceiling">Ceiling-Effekt</div>
+          </article>
+          <article class="stat-card stat-card-emphasis">
+            <div class="stat-value">79,3–92,9 %</div>
+            <div class="stat-label" data-i18n="hiddenTests">Hidden Tests</div>
+            <div class="stat-note" data-i18n="robustDiff">signifikante Robustheitsunterschiede</div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-value">3.870–7.489</div>
+            <div class="stat-label" data-i18n="tokensPerTest">Tokens / Testfall</div>
+            <div class="stat-note" data-i18n="efficiencySpread">fast 2× Effizienzspanne</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-intro">
+      <div class="container split-intro">
+        <div>
+          <p class="section-kicker" data-i18n="researchQuestionKicker">Die Kernfrage</p>
+          <h2 data-i18n="researchQuestionTitle">Was passiert, wenn Pass/Fail nicht mehr trennt?</h2>
+        </div>
+        <div class="prose-card">
+          <p data-i18n="researchQuestionBody">
+            Unsere Evaluation ersetzt Unit-Tests nicht. Sie ergänzt sie um sechs Perspektiven, damit Agenten auch dann differenziert bewertet werden können, wenn die funktionale Erfolgsrate bereits nahe am Maximum liegt.
+          </p>
+          <div class="metric-pills" aria-label="Metrikdimensionen">
+            <span>Funktionalität</span><span>Robustheit</span><span>Wartbarkeit</span><span>Minimalität</span><span>Constraint</span><span>Effizienz</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker" data-i18n="resultsKicker">Zentrale Ergebnisse</p>
+            <h2 data-i18n="resultsTitle">Kein universelles Ranking.</h2>
+          </div>
+          <p class="section-copy" data-i18n="resultsCopy">
+            Je nach Zielgröße gewinnt ein anderer Agent. Die faire Artefaktbasis umfasst 70 Konfigurationen, für die bei allen drei Agenten echte Codeartefakte vorliegen.
+          </p>
+        </div>
+
+        <div class="agent-grid">
+          <article class="agent-card">
+            <div class="agent-topline"><span class="agent-dot"></span><span>Claude</span></div>
+            <h3 data-i18n="claudeTitle">Beste Artefaktqualität</h3>
+            <div class="agent-highlight">0,972</div>
+            <p class="agent-highlight-label" data-i18n="qualityScore">Qualitativer Gesamtscore</p>
+            <dl class="agent-metrics">
+              <div><dt>Hidden-Pass</dt><dd>92,9 %</dd></div>
+              <div><dt>SLOC</dt><dd>30,50</dd></div>
+              <div><dt>Tokens/Test</dt><dd>6.998</dd></div>
+            </dl>
+          </article>
+
+          <article class="agent-card agent-card-featured">
+            <div class="agent-topline"><span class="agent-dot"></span><span>Codex</span></div>
+            <h3 data-i18n="codexTitle">Beste Ressourceneffizienz</h3>
+            <div class="agent-highlight">3.870</div>
+            <p class="agent-highlight-label" data-i18n="tokensPerPassedTest">Tokens je bestandenem Testfall</p>
+            <dl class="agent-metrics">
+              <div><dt>Hidden-Pass</dt><dd>79,3 %</dd></div>
+              <div><dt>Komplexität</dt><dd>5,72</dd></div>
+              <div><dt>Quality</dt><dd>0,942</dd></div>
+            </dl>
+          </article>
+
+          <article class="agent-card">
+            <div class="agent-topline"><span class="agent-dot"></span><span>Gemini</span></div>
+            <h3 data-i18n="geminiTitle">Operativ stabil</h3>
+            <div class="agent-highlight">96 / 96</div>
+            <p class="agent-highlight-label" data-i18n="completedRuns">regulär abgeschlossene Läufe</p>
+            <dl class="agent-metrics">
+              <div><dt>Hidden-Pass</dt><dd>83,3 %</dd></div>
+              <div><dt>Compliance</dt><dd>75,7 %</dd></div>
+              <div><dt>Tokens/Test</dt><dd>7.489</dd></div>
+            </dl>
+          </article>
+        </div>
+
+        <div class="scorecard-wrap">
+          <div class="scorecard-head">
+            <div>
+              <p class="section-kicker" data-i18n="scorecardKicker">Agent Scorecard</p>
+              <h3 data-i18n="scorecardTitle">Depends on what you measure.</h3>
+            </div>
+            <div class="scorecard-tabs" role="tablist" aria-label="Metrikansicht">
+              <button class="tab-button active" data-metric="robustness" role="tab">Robustheit</button>
+              <button class="tab-button" data-metric="quality" role="tab">Qualität</button>
+              <button class="tab-button" data-metric="efficiency" role="tab">Effizienz</button>
+              <button class="tab-button" data-metric="compliance" role="tab">Compliance</button>
+            </div>
+          </div>
+
+          <div class="metric-explorer" id="metricExplorer" aria-live="polite">
+            <div class="metric-copy">
+              <span class="metric-winner" id="metricWinner">Claude führt bei Hidden Tests</span>
+              <h4 id="metricTitle">Robustheit gegenüber verdeckten Randfällen</h4>
+              <p id="metricDescription">Bei sichtbaren Tests sind die Systeme praktisch nicht zu unterscheiden. Hidden Tests erzeugen dagegen eine klare Spreizung.</p>
+            </div>
+            <div class="bar-chart" id="barChart" aria-label="Vergleichsbalken"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="method">
+      <div class="container">
+        <div class="section-heading section-heading-light">
+          <div>
+            <p class="section-kicker" data-i18n="methodKicker">Studiendesign</p>
+            <h2 data-i18n="methodTitle">288 gepaarte Läufe. Gleiche Aufgaben. Gleiche Bedingungen.</h2>
+          </div>
+          <p class="section-copy" data-i18n="methodCopy">
+            Drei Coding-Agenten bearbeiten dieselben Konfigurationen aus vier Aufgaben, vier Varianten, drei Prompt-Stufen und zwei Modi. Dadurch bleibt die Aufgabenstellung kontrolliert und Unterschiede können dem jeweiligen Agentensystem zugeordnet werden.
+          </p>
+        </div>
+
+        <div class="method-facts">
+          <div><strong>3</strong><span data-i18n="agents">Agenten</span></div>
+          <div><strong>4 × 4</strong><span data-i18n="taskVariants">Aufgaben × Varianten</span></div>
+          <div><strong>3</strong><span data-i18n="promptLevels">Prompt-Stufen</span></div>
+          <div><strong>2</strong><span data-i18n="modes">Modi</span></div>
+          <div><strong>288</strong><span data-i18n="pairedRuns">Experimentläufe</span></div>
+        </div>
+
+        <div class="pipeline" aria-label="Evaluationspipeline">
+          <div class="pipeline-step"><span>01</span><strong>Konfiguration</strong><small>Aufgabe · Variante · Prompt · Modus</small></div>
+          <div class="pipeline-arrow">→</div>
+          <div class="pipeline-step"><span>02</span><strong>Coding-Agent</strong><small>Claude · Codex · Gemini</small></div>
+          <div class="pipeline-arrow">→</div>
+          <div class="pipeline-step"><span>03</span><strong>Codeartefakt</strong><small>solution.py + Laufprotokoll</small></div>
+          <div class="pipeline-arrow">→</div>
+          <div class="pipeline-step"><span>04</span><strong>Metrikschicht</strong><small>Tests · SLOC · AST · Tokens</small></div>
+          <div class="pipeline-arrow">→</div>
+          <div class="pipeline-step pipeline-step-accent"><span>05</span><strong>Qualitätsprofil</strong><small>multidimensional statt Pass/Fail</small></div>
+        </div>
+
+        <div class="basis-note">
+          <strong data-i18n="fairBasisTitle">Faire Artefaktbasis: n = 70</strong>
+          <p data-i18n="fairBasisText">Claude erzeugte in 70 Konfigurationen auswertbare Artefakte; 26 spätere Läufe endeten wegen des Nutzungslimits ohne Output. Für Qualitätsvergleiche werden deshalb nur die 70 Konfigurationen verwendet, für die alle drei Agenten echte Artefakte lieferten. Codex und Gemini schlossen alle 96 Läufe regulär ab.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="hypotheses">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker" data-i18n="hypKicker">Hypothesen</p>
+            <h2 data-i18n="hypTitle">Vier Tests, zwei klare Effekte.</h2>
+          </div>
+          <p class="section-copy" data-i18n="hypCopy">Mehr Rechenaufwand bedeutet nicht automatisch bessere Ergebnisse. Präzisere Prompts senken in unserem Aufgabenraum den Tokenverbrauch, ohne die Qualität nachweisbar zu erhöhen.</p>
+        </div>
+
+        <div class="hyp-grid">
+          <article class="hyp-card accepted">
+            <div class="hyp-head"><span>H1</span><strong data-i18n="accepted">ANGENOMMEN</strong></div>
+            <h3 data-i18n="h1Title">Mehr Tokens erklären keine höhere Test-Pass-Rate.</h3>
+            <p>p = 0,913 · R² = 0,0105</p>
+          </article>
+          <article class="hyp-card rejected">
+            <div class="hyp-head"><span>H2</span><strong data-i18n="rejected">ABGELEHNT</strong></div>
+            <h3 data-i18n="h2Title">Self-Refining erhöht die Robustheit nicht nachweisbar.</h3>
+            <p>Direct 85,6 % vs. Self-Refining 84,8 % · p = 0,179</p>
+          </article>
+          <article class="hyp-card accepted">
+            <div class="hyp-head"><span>H3</span><strong data-i18n="accepted2">ANGENOMMEN</strong></div>
+            <h3 data-i18n="h3Title">Bessere Prompts senken den Tokenverbrauch.</h3>
+            <p>107.045 → 101.888 → 93.262 · p = 0,0409</p>
+          </article>
+          <article class="hyp-card rejected">
+            <div class="hyp-head"><span>H4</span><strong data-i18n="rejected2">ABGELEHNT</strong></div>
+            <h3 data-i18n="h4Title">Bessere Prompts erhöhen nicht zugleich die Qualität.</h3>
+            <p>p = 0,990</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-takeaway">
+      <div class="container takeaway-card">
+        <div class="takeaway-mark">≠</div>
+        <div>
+          <p class="section-kicker" data-i18n="takeawayKicker">Take-away</p>
+          <h2 data-i18n="takeawayTitle">Passing tests ≠ good code.</h2>
+          <p data-i18n="takeawayBody">Die Bewertungspriorität verschiebt sich von reiner funktionaler Korrektheit hin zu Robustheit, Codequalität, Regelkonformität und Ressourceneffizienz. Für betriebliche Entscheidungen ist genau diese Profilperspektive entscheidend.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="resources">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker" data-i18n="resourcesKicker">Material</p>
+            <h2 data-i18n="resourcesTitle">Paper und Poster direkt mitnehmen.</h2>
+          </div>
+          <p class="section-copy" data-i18n="resourcesCopy">Die Website ist als mobiler Begleiter zum Konferenzstand gedacht: zuerst der Take-away, dann die Details.</p>
+        </div>
+
+        <div class="resource-grid">
+          <a class="resource-card" href="public/paper.pdf" target="_blank" rel="noopener">
+            <div class="resource-preview"><img src="public/paper-preview.png" alt="Vorschau der ersten Seite des Papers" loading="lazy" /></div>
+            <div class="resource-content">
+              <span class="resource-type">PDF · 8 Seiten</span>
+              <h3 data-i18n="paperTitle">Extended Abstract / Paper</h3>
+              <p data-i18n="paperDesc">Methodik, Operationalisierung, statistische Auswertung, Ergebnisse und Limitationen.</p>
+              <span class="resource-link" data-i18n="openPaper">Paper öffnen ↗</span>
+            </div>
+          </a>
+
+          <a class="resource-card" href="public/poster.pdf" target="_blank" rel="noopener">
+            <div class="resource-preview"><img src="public/poster-preview.png" alt="Vorschau des WI2026 Posters" loading="lazy" /></div>
+            <div class="resource-content">
+              <span class="resource-type">PDF · Poster</span>
+              <h3 data-i18n="posterTitle">WI2026 Student Challenge Poster</h3>
+              <p data-i18n="posterDesc">Studiendesign, Scorecard, Hypothesen und zentrale Zahlen auf einer Seite.</p>
+              <span class="resource-link" data-i18n="openPoster">Poster öffnen ↗</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-authors">
+      <div class="container authors-wrap">
+        <div>
+          <p class="section-kicker" data-i18n="authorsKicker">Autor:innen</p>
+          <h2>Chris David Kaufmann · Luca di Siro · Daniel Ertel · Richard Beser</h2>
+          <p data-i18n="authorsAffiliation">Duale Hochschule Baden-Württemberg Mosbach · Studiengang Wirtschaftsinformatik</p>
+        </div>
+        <div class="author-links">
+          <a href="mailto:chriskaufmann11@gmail.com">Chris</a>
+          <a href="mailto:luca.di.siro@web.de">Luca</a>
+          <a href="mailto:danielertel2002@gmail.com">Daniel</a>
+          <a href="mailto:richardbeser@gmail.com">Richard</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>21. Internationale Konferenz Wirtschaftsinformatik · 6.–10.09.2026 · Johannes Kepler Universität Linz</p>
+      <p>Research in Progress · Student Challenge</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
