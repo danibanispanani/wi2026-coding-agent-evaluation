@@ -110,3 +110,12 @@ langToggle.addEventListener('click', () => {
     el.textContent = language === 'en' && translations.en[key] ? translations.en[key] : originals[key];
   });
 });
+
+const enhancementScript = document.createElement('script');
+enhancementScript.src = 'enhancements.js';
+enhancementScript.onload = () => {
+  const authorLinksScript = document.createElement('script');
+  authorLinksScript.src = 'author-links.js';
+  document.body.appendChild(authorLinksScript);
+};
+document.body.appendChild(enhancementScript);
