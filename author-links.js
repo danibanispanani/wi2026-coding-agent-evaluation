@@ -6,10 +6,6 @@
     'Richard Beser': 'https://www.linkedin.com/in/richard-beser-8b8373323/'
   };
 
-  // Correct mapping of the files already stored in /public.
-  // Doku Schalles = Full Paper
-  // Neue Metriken = JKU Exposé
-  // poster-de.pdf = German poster
   if (typeof W !== 'undefined') {
     W.paper = 'public/Doku Schalles (1).pdf';
     W.expose = 'public/Neue_Metriken_für_LLM_basierte_Coding_Agenten_final (1) (1).pdf';
@@ -52,4 +48,8 @@
     attributes: true,
     attributeFilter: ['lang']
   });
+
+  const finalizer = document.createElement('script');
+  finalizer.src = 'finalize.js';
+  document.body.appendChild(finalizer);
 })();
