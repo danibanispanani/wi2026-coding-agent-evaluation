@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="study-assistant/assistant.css?v=20260907-live" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Zum Inhalt springen</a>
 
   <header class="site-header">
     <div class="container nav-wrap">
@@ -27,10 +27,10 @@
         </span>
       </a>
       <nav class="desktop-nav" aria-label="Hauptnavigation">
-        <a href="#results">Ergebnisse</a>
-        <a href="#method">Methode</a>
-        <a href="#hypotheses">Hypothesen</a>
-        <a href="#resources">Material</a>
+        <a href="#results" data-i18n="navResults">Ergebnisse</a>
+        <a href="#method" data-i18n="navMethod">Methode</a>
+        <a href="#hypotheses" data-i18n="navHypotheses">Hypothesen</a>
+        <a href="#resources" data-i18n="navResources">Material</a>
       </nav>
       <div class="nav-actions">
         <button class="lang-toggle" id="langToggle" type="button" aria-label="Sprache wechseln">EN</button>
@@ -45,7 +45,7 @@
       <div class="hero-grid-bg" aria-hidden="true"></div>
       <div class="container hero-content">
         <div class="eyebrow-row">
-          <span class="eyebrow">21. Internationale Konferenz Wirtschaftsinformatik · Linz</span>
+          <span class="eyebrow" data-i18n="heroEyebrow">21. Internationale Konferenz Wirtschaftsinformatik · Linz</span>
           <span class="status-chip">Research in Progress · Student Challenge</span>
         </div>
 
@@ -66,17 +66,17 @@
 
         <div class="stat-strip" aria-label="Zentrale Kennzahlen">
           <article class="stat-card">
-            <div class="stat-value">99,7–100 %</div>
+            <div class="stat-value" data-i18n="visibleRange">99,7–100 %</div>
             <div class="stat-label" data-i18n="visibleTests">sichtbare Tests</div>
             <div class="stat-note" data-i18n="ceiling">Ceiling-Effekt</div>
           </article>
           <article class="stat-card stat-card-emphasis">
-            <div class="stat-value">79,3–92,9 %</div>
+            <div class="stat-value" data-i18n="hiddenRange">79,3–92,9 %</div>
             <div class="stat-label" data-i18n="hiddenTests">Hidden Tests</div>
             <div class="stat-note" data-i18n="robustDiff">signifikante Robustheitsunterschiede</div>
           </article>
           <article class="stat-card">
-            <div class="stat-value">3.870–7.489</div>
+            <div class="stat-value" data-i18n="tokenRange">3.870–7.489</div>
             <div class="stat-label" data-i18n="tokensPerTest">Tokens / Testfall</div>
             <div class="stat-note" data-i18n="efficiencySpread">fast 2× Effizienzspanne</div>
           </article>
@@ -95,7 +95,7 @@
             Unsere Evaluation ersetzt Unit-Tests nicht. Sie ergänzt sie um sechs Perspektiven, damit Agenten auch dann differenziert bewertet werden können, wenn die funktionale Erfolgsrate bereits nahe am Maximum liegt.
           </p>
           <div class="metric-pills" aria-label="Metrikdimensionen">
-            <span>Funktionalität</span><span>Robustheit</span><span>Wartbarkeit</span><span>Minimalität</span><span>Constraint</span><span>Effizienz</span>
+            <span data-i18n="metricFunctionality">Funktionalität</span><span data-i18n="metricRobustness">Robustheit</span><span data-i18n="metricMaintainability">Wartbarkeit</span><span data-i18n="metricMinimality">Minimalität</span><span data-i18n="metricConstraint">Constraint</span><span data-i18n="metricEfficiency">Effizienz</span>
           </div>
         </div>
       </div>
@@ -117,24 +117,24 @@
           <article class="agent-card">
             <div class="agent-topline"><span class="agent-dot"></span><span>Claude</span></div>
             <h3 data-i18n="claudeTitle">Beste Artefaktqualität</h3>
-            <div class="agent-highlight">0,972</div>
+            <div class="agent-highlight" data-i18n="claudeQualityValue">0,972</div>
             <p class="agent-highlight-label" data-i18n="qualityScore">Qualitativer Gesamtscore</p>
             <dl class="agent-metrics">
-              <div><dt>Hidden-Pass</dt><dd>92,9 %</dd></div>
-              <div><dt>SLOC</dt><dd>30,50</dd></div>
-              <div><dt>Tokens/Test</dt><dd>6.998</dd></div>
+              <div><dt data-i18n="hiddenPassLabel">Hidden-Pass</dt><dd data-i18n="claudeHiddenValue">92,9 %</dd></div>
+              <div><dt>SLOC</dt><dd data-i18n="claudeSlocValue">30,50</dd></div>
+              <div><dt data-i18n="tokensTestLabel">Tokens/Test</dt><dd data-i18n="claudeTokenValue">6.998</dd></div>
             </dl>
           </article>
 
           <article class="agent-card agent-card-featured">
             <div class="agent-topline"><span class="agent-dot"></span><span>Codex</span></div>
             <h3 data-i18n="codexTitle">Beste Ressourceneffizienz</h3>
-            <div class="agent-highlight">3.870</div>
+            <div class="agent-highlight" data-i18n="codexTokenValue">3.870</div>
             <p class="agent-highlight-label" data-i18n="tokensPerPassedTest">Tokens je bestandenem Testfall</p>
             <dl class="agent-metrics">
-              <div><dt>Hidden-Pass</dt><dd>79,3 %</dd></div>
-              <div><dt>Komplexität</dt><dd>5,72</dd></div>
-              <div><dt>Quality</dt><dd>0,942</dd></div>
+              <div><dt data-i18n="hiddenPassLabel">Hidden-Pass</dt><dd data-i18n="codexHiddenValue">79,3 %</dd></div>
+              <div><dt data-i18n="complexityLabel">Komplexität</dt><dd data-i18n="codexComplexityValue">5,72</dd></div>
+              <div><dt>Quality</dt><dd data-i18n="codexQualityValue">0,942</dd></div>
             </dl>
           </article>
 
@@ -144,9 +144,9 @@
             <div class="agent-highlight">96 / 96</div>
             <p class="agent-highlight-label" data-i18n="completedRuns">regulär abgeschlossene Läufe</p>
             <dl class="agent-metrics">
-              <div><dt>Hidden-Pass</dt><dd>83,3 %</dd></div>
-              <div><dt>Compliance</dt><dd>75,7 %</dd></div>
-              <div><dt>Tokens/Test</dt><dd>7.489</dd></div>
+              <div><dt data-i18n="hiddenPassLabel">Hidden-Pass</dt><dd data-i18n="geminiHiddenValue">83,3 %</dd></div>
+              <div><dt>Compliance</dt><dd data-i18n="geminiComplianceValue">75,7 %</dd></div>
+              <div><dt data-i18n="tokensTestLabel">Tokens/Test</dt><dd data-i18n="geminiTokenValue">7.489</dd></div>
             </dl>
           </article>
         </div>
@@ -158,10 +158,10 @@
               <h3 data-i18n="scorecardTitle">Depends on what you measure.</h3>
             </div>
             <div class="scorecard-tabs" role="tablist" aria-label="Metrikansicht">
-              <button class="tab-button active" data-metric="robustness" role="tab">Robustheit</button>
-              <button class="tab-button" data-metric="quality" role="tab">Qualität</button>
-              <button class="tab-button" data-metric="efficiency" role="tab">Effizienz</button>
-              <button class="tab-button" data-metric="compliance" role="tab">Compliance</button>
+              <button class="tab-button active" data-metric="robustness" role="tab" data-i18n="metricTabRobustness">Robustheit</button>
+              <button class="tab-button" data-metric="quality" role="tab" data-i18n="metricTabQuality">Qualität</button>
+              <button class="tab-button" data-metric="efficiency" role="tab" data-i18n="metricTabEfficiency">Effizienz</button>
+              <button class="tab-button" data-metric="compliance" role="tab" data-i18n="metricTabCompliance">Compliance</button>
             </div>
           </div>
 
@@ -198,15 +198,15 @@
         </div>
 
         <div class="pipeline" aria-label="Evaluationspipeline">
-          <div class="pipeline-step"><span>01</span><strong>Konfiguration</strong><small>Aufgabe · Variante · Prompt · Modus</small></div>
+          <div class="pipeline-step"><span>01</span><strong data-i18n="pipelineConfiguration">Konfiguration</strong><small data-i18n="pipelineConfigurationDetail">Aufgabe · Variante · Prompt · Modus</small></div>
           <div class="pipeline-arrow">→</div>
-          <div class="pipeline-step"><span>02</span><strong>Coding-Agent</strong><small>Claude · Codex · Gemini</small></div>
+          <div class="pipeline-step"><span>02</span><strong data-i18n="pipelineAgent">Coding-Agent</strong><small>Claude · Codex · Gemini</small></div>
           <div class="pipeline-arrow">→</div>
-          <div class="pipeline-step"><span>03</span><strong>Codeartefakt</strong><small>solution.py + Laufprotokoll</small></div>
+          <div class="pipeline-step"><span>03</span><strong data-i18n="pipelineArtifact">Codeartefakt</strong><small data-i18n="pipelineArtifactDetail">solution.py + Laufprotokoll</small></div>
           <div class="pipeline-arrow">→</div>
-          <div class="pipeline-step"><span>04</span><strong>Metrikschicht</strong><small>Tests · SLOC · AST · Tokens</small></div>
+          <div class="pipeline-step"><span>04</span><strong data-i18n="pipelineMetrics">Metrikschicht</strong><small>Tests · SLOC · AST · Tokens</small></div>
           <div class="pipeline-arrow">→</div>
-          <div class="pipeline-step pipeline-step-accent"><span>05</span><strong>Qualitätsprofil</strong><small>multidimensional statt Pass/Fail</small></div>
+          <div class="pipeline-step pipeline-step-accent"><span>05</span><strong data-i18n="pipelineProfile">Qualitätsprofil</strong><small data-i18n="pipelineProfileDetail">multidimensional statt Pass/Fail</small></div>
         </div>
 
         <div class="basis-note">
@@ -230,22 +230,22 @@
           <article class="hyp-card accepted">
             <div class="hyp-head"><span>H1</span><strong data-i18n="accepted">ANGENOMMEN</strong></div>
             <h3 data-i18n="h1Title">Mehr Tokens erklären keine höhere Test-Pass-Rate.</h3>
-            <p>p = 0,913 · R² = 0,0105</p>
+            <p data-i18n="h1Stats">p = 0,913 · R² = 0,0105</p>
           </article>
           <article class="hyp-card rejected">
             <div class="hyp-head"><span>H2</span><strong data-i18n="rejected">ABGELEHNT</strong></div>
             <h3 data-i18n="h2Title">Self-Refining erhöht die Robustheit nicht nachweisbar.</h3>
-            <p>Direct 85,6 % vs. Self-Refining 84,8 % · p = 0,179</p>
+            <p data-i18n="h2Stats">Direct 85,6 % vs. Self-Refining 84,8 % · p = 0,179</p>
           </article>
           <article class="hyp-card accepted">
             <div class="hyp-head"><span>H3</span><strong data-i18n="accepted2">ANGENOMMEN</strong></div>
             <h3 data-i18n="h3Title">Bessere Prompts senken den Tokenverbrauch.</h3>
-            <p>107.045 → 101.888 → 93.262 · p = 0,0409</p>
+            <p data-i18n="h3Stats">107.045 → 101.888 → 93.262 · p = 0,0409</p>
           </article>
           <article class="hyp-card rejected">
             <div class="hyp-head"><span>H4</span><strong data-i18n="rejected2">ABGELEHNT</strong></div>
             <h3 data-i18n="h4Title">Bessere Prompts erhöhen nicht zugleich die Qualität.</h3>
-            <p>p = 0,990</p>
+            <p data-i18n="h4Stats">p = 0,990</p>
           </article>
         </div>
       </div>
@@ -326,7 +326,7 @@
 
   <footer class="site-footer">
     <div class="container footer-wrap">
-      <p>21. Internationale Konferenz Wirtschaftsinformatik · 6.–10.09.2026 · Johannes Kepler Universität Linz</p>
+      <p data-i18n="footerConference">21. Internationale Konferenz Wirtschaftsinformatik · 6.–10.09.2026 · Johannes Kepler Universität Linz</p>
       <p>Research in Progress · Student Challenge</p>
     </div>
   </footer>
@@ -359,7 +359,7 @@
     </div>
   </dialog>
 
-  <script src="script.js?v=20260907-v4" defer></script>
+  <script src="script.js?v=20260907-lang-v5" defer></script>
   <script src="finalize.js?v=20260907-v4" defer></script>
   <script src="polish-v3.js?v=20260907-v4" defer></script>
   <script src="polish-v4.js?v=20260907-v4" defer></script>
