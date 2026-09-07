@@ -81,6 +81,18 @@
       .avatar img[hidden] { display: none !important; }
       .person h3 { margin-top: 14px !important; }
 
+      .hero-actions [data-polish-poster] { display: none !important; }
+      .hero-poster-language {
+        white-space: nowrap;
+      }
+      .hero-poster-language[data-hero-poster="en"] {
+        border-color: rgba(161, 205, 0, .65) !important;
+      }
+      .hero-poster-language[data-hero-poster="en"]:hover {
+        border-color: rgba(161, 205, 0, 1) !important;
+        background: rgba(161, 205, 0, .09) !important;
+      }
+
       @media (max-width: 1050px) {
         #resources .resource-grid.docs4 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
       }
@@ -89,6 +101,7 @@
       }
       @media (max-width: 600px) {
         .lang-switch button { min-width: 34px; padding: 0 7px; }
+        .hero-poster-language { flex: 1 1 auto; justify-content: center; }
       }
     `;
     document.head.appendChild(style);
@@ -161,6 +174,39 @@
     });
   }
 
+  function ensureHeroPosterButtons() {
+    const actions = $('.hero-actions');
+    if (!actions) return;
+
+    const englishUi = document.documentElement.lang === 'en';
+    const buttons = [
+      {
+        key: 'de',
+        href: 'public/poster-de.pdf',
+        label: englishUi ? 'Open German poster' : 'Poster DE öffnen'
+      },
+      {
+        key: 'en',
+        href: 'public/StudentChallenge_ID476_EN.pdf',
+        label: englishUi ? 'Open English poster' : 'Poster EN öffnen'
+      }
+    ];
+
+    buttons.forEach(config => {
+      let button = actions.querySelector(`[data-hero-poster="${config.key}"]`);
+      if (!button) {
+        button = document.createElement('a');
+        button.className = 'button button-ghost hero-v3-poster hero-poster-language';
+        button.dataset.heroPoster = config.key;
+        button.target = '_blank';
+        button.rel = 'noopener';
+        actions.appendChild(button);
+      }
+      button.href = config.href;
+      button.textContent = config.label;
+    });
+  }
+
   function apply() {
     addStyle();
     removeDuplicatePosterStrip();
@@ -168,6 +214,7 @@
     syncResourceCopy();
     installProfileImages();
     syncLanguageSwitch();
+    ensureHeroPosterButtons();
   }
 
   apply();
