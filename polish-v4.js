@@ -2,10 +2,10 @@
   'use strict';
 
   const AUTHORS = [
-    { key: 'chris', initials: 'CK', name: 'Chris David Kaufmann' },
-    { key: 'luca', initials: 'LS', name: 'Luca di Siro' },
-    { key: 'daniel', initials: 'DE', name: 'Daniel Ertel' },
-    { key: 'richard', initials: 'RB', name: 'Richard Beser' }
+    { initials: 'CK', name: 'Chris David Kaufmann', image: 'public/chris_bild.jpeg' },
+    { initials: 'LS', name: 'Luca di Siro', image: 'public/luca_bild.jpeg' },
+    { initials: 'DE', name: 'Daniel Ertel', image: 'public/daniel_bild.png' },
+    { initials: 'RB', name: 'Richard Beser', image: 'public/richard_bild.png' }
   ];
 
   const $ = (s, r = document) => r.querySelector(s);
@@ -18,6 +18,7 @@
     style.textContent = `
       .current-doc { display: none !important; }
       #resources .resource-preview { display: none !important; }
+      #resources .resource-grid.docs4 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
 
       .lang-switch {
         display: inline-flex;
@@ -80,6 +81,12 @@
       .avatar img[hidden] { display: none !important; }
       .person h3 { margin-top: 14px !important; }
 
+      @media (max-width: 1050px) {
+        #resources .resource-grid.docs4 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+      }
+      @media (max-width: 700px) {
+        #resources .resource-grid.docs4 { grid-template-columns: 1fr !important; }
+      }
       @media (max-width: 600px) {
         .lang-switch button { min-width: 34px; padding: 0 7px; }
       }
@@ -91,18 +98,51 @@
     $$('.current-doc').forEach(el => el.remove());
   }
 
+  function removeSchallesPaper() {
+    const resources = $('#resources');
+    if (!resources) return;
+
+    $$('a', resources).forEach(link => {
+      const href = decodeURI(link.getAttribute('href') || '');
+      const text = (link.textContent || '').trim();
+      if (/Doku Schalles/i.test(href) || /Full Paper/i.test(text) || /Finale wissenschaftliche Ausarbeitung/i.test(text)) {
+        link.remove();
+      }
+    });
+  }
+
+  function syncResourceCopy() {
+    const section = $('#resources');
+    if (!section) return;
+    const english = document.documentElement.lang === 'en';
+    const title = $('.section-heading h2', section);
+    const copy = $('.section-copy', section);
+
+    if (title) {
+      title.textContent = english ? 'All project documents in one place.' : 'Alle Projektdokumente an einem Ort.';
+    }
+    if (copy) {
+      copy.textContent = english
+        ? 'The JKU exposé and both poster versions are directly available. The highlighted poster follows the selected site language.'
+        : 'Das JKU-Exposé und beide Posterfassungen sind direkt verfügbar. Das hervorgehobene Poster folgt der gewählten Seitensprache.';
+    }
+  }
+
   function installProfileImages() {
     $$('.person').forEach((card, index) => {
       const person = AUTHORS[index];
       if (!person) return;
       const avatar = $('.avatar', card);
-      if (!avatar || avatar.dataset.photoReady === '1') return;
-      avatar.dataset.photoReady = '1';
-      avatar.innerHTML = `<span class="avatar-fallback">${person.initials}</span>`;
+      if (!avatar) return;
 
+      const existing = $('img', avatar);
+      if (existing && existing.dataset.profilePath === person.image) return;
+
+      avatar.innerHTML = `<span class="avatar-fallback">${person.initials}</span>`;
       const img = document.createElement('img');
       img.alt = `${person.name} – Profilbild`;
-      img.src = `public/team/${person.key}.jpg`;
+      img.src = person.image;
+      img.dataset.profilePath = person.image;
       img.hidden = true;
       img.addEventListener('load', () => { img.hidden = false; });
       img.addEventListener('error', () => { img.remove(); });
@@ -124,11 +164,14 @@
   function apply() {
     addStyle();
     removeDuplicatePosterStrip();
+    removeSchallesPaper();
+    syncResourceCopy();
     installProfileImages();
     syncLanguageSwitch();
   }
 
   apply();
+
   new MutationObserver(() => requestAnimationFrame(apply)).observe(document.documentElement, {
     attributes: true,
     attributeFilter: ['lang']
